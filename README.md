@@ -22,7 +22,7 @@ npm start
 
 Browser: [http://127.0.0.1:4173](http://127.0.0.1:4173)
 
-Role chip dabao (PIN nahi). Upar se branch filter, neeche 5 screens.
+Role row se Enter (PIN nahi). Left sidebar: Group, Doctor Khaata, Cash Book, Payment Register, Bills. Topbar unit dropdown.
 
 Static-only (bina custom server):
 
@@ -85,18 +85,33 @@ git remote add origin https://github.com/venkateshwareinstein-svg/spark-ledger-d
 git push -u origin main
 ```
 
-## Public demo
+## Public demo (caller-facing URL)
 
-Static files in `public/` (no Node runtime). GitHub Pages publishes that folder:
+Static files in `public/` (no Node runtime). **Do not share a github.io URL** — it embeds a personal GitHub username.
 
-**https://venkateshwareinstein-svg.github.io/spark-ledger-demo/**
+Preferred Spark Strategy hosts (need the Netlify account that already serves `sparkstrategy.co.in`):
 
-Preferred Spark Strategy hosts (DNS / Netlify account still needed):
+- `https://sparkstrategy.co.in/ledger/demo` — **proxy path** on the existing Netlify site. Do **not** replace `/ledger` (the marketing page).
+- `https://demo.sparkstrategy.co.in` — dedicated subdomain.
 
-- `https://sparkstrategy.co.in/ledger/demo` — path on the existing Netlify site (currently 404)
-- `https://demo.sparkstrategy.co.in` — subdomain (currently no DNS)
+Until that DNS is attached, share a `*.netlify.app` host produced by connecting this repo (or dropping `public/`) as a **separate** Netlify site. `netlify.toml` publishes `public/` at the site root.
 
-Connect this repo to Netlify (`netlify.toml` publishes `public/`) or add a Pages CNAME after the subdomain exists.
+### DNS / Netlify (existing `sparkstrategy.co.in` site — do not overwrite `/ledger`)
+
+1. Create a **new** Netlify site from this repo (`publish = public`). Note its `https://<site>.netlify.app` URL.
+2. **Subdomain (preferred):** in DNS (NS1, already on this domain), add  
+   `CNAME demo.sparkstrategy.co.in` → `<site>.netlify.app`  
+   Then in the **new** site: Domain management → add `demo.sparkstrategy.co.in` → verify TLS.
+3. **Path (optional, keeps one hostname):** on the **existing** marketing Netlify site only, add a rewrite — do not copy demo files into `/ledger/`:  
+   `/ledger/demo/*  https://<site>.netlify.app/:splat  200!`  
+   `/ledger/demo    https://<site>.netlify.app/        200!`  
+   `/ledger` and `/ledger/` stay the marketing page.
+
+This GitHub App cannot log into that Netlify account, so the rewrite/CNAME has to be clicked there.
+
+## UI
+
+The interactive demo is an **ops shell** (navy sidebar, sticky topbar, dense tables, Spark Ledger gold stamps) using the public Spark Ledger tokens from `sparkstrategy.co.in/ledger` (Archivo, IBM Plex Mono, `#0D1B2C` / `#B5841F`). It is not the marketing landing layout. The private live-portal repo is not readable by this token, so pixel-matching that runtime CSS was not possible.
 
 ## What was extracted / scrubbed
 
