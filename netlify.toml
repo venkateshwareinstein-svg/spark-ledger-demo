@@ -1,11 +1,6 @@
-# Static demo: publish public/ as-is. No Node runtime needed.
-[build]
-  publish = "public"
-  command = "true"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Cache-Control = "no-store"
+# This repo is NOT the sparkstrategy.co.in marketing site.
+# `netlify deploy --dir public --prod` against that site would replace the
+# homepage, /ledger/, and the spark-ledger-lead form. Do not do that.
+#
+# Publish the demo as an overlay at /ledger/demo/ only:
+#   NETLIFY_AUTH_TOKEN=… node scripts/deploy-ledger-demo.js

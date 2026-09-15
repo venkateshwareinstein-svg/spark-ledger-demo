@@ -87,16 +87,21 @@ git push -u origin main
 
 ## Public demo
 
-Static files in `public/` (no Node runtime). GitHub Pages publishes that folder:
+Required URL (do not share the github.io username host):
 
-**https://venkateshwareinstein-svg.github.io/spark-ledger-demo/**
+**https://sparkstrategy.co.in/ledger/demo/**
 
-Preferred Spark Strategy hosts (DNS / Netlify account still needed):
+That path is a folder overlay on the existing Netlify site. `/ledger/` (marketing + `spark-ledger-lead` form) must stay untouched. `demo.sparkstrategy.co.in` has no DNS.
 
-- `https://sparkstrategy.co.in/ledger/demo` — path on the existing Netlify site (currently 404)
-- `https://demo.sparkstrategy.co.in` — subdomain (currently no DNS)
+Publishing needs a Netlify token for the team that already owns `sparkstrategy.co.in`. This repo must not be connected as that site’s root.
 
-Connect this repo to Netlify (`netlify.toml` publishes `public/`) or add a Pages CNAME after the subdomain exists.
+```bash
+export NETLIFY_AUTH_TOKEN=…   # PAT from app.netlify.com → user → applications
+# optional: export NETLIFY_SITE_ID=…   # Site settings → API ID
+node scripts/deploy-ledger-demo.js
+```
+
+Without that token the script exits and prints the exact blocker. Do not run `netlify deploy --dir public --prod` against the marketing site.
 
 ## What was extracted / scrubbed
 
