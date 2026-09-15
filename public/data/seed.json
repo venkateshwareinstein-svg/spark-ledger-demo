@@ -28,7 +28,7 @@
   ],
   "doctors": [
     { "code": "RF 4401", "name": "Dr. Meera Joshi", "clinic": "Lakeview Clinic, Ward 4", "payLater": false },
-    { "code": "RF 4402", "name": "Dr. Kabir Sethi", "clinic": "Orchard Lane OPD", "payLater": false },
+    { "code": "RF 4402", "name": "Dr. Arjun Sethi", "clinic": "Orchard Lane OPD", "payLater": false },
     { "code": "RF 4403", "name": "Dr. Leela Nair", "clinic": "Heights Family Care", "payLater": false },
     { "code": "RF 4408", "name": "Dr. Omar Qureshi", "clinic": "Riverside Consult", "payLater": true },
     { "code": "RF 4411", "name": "Dr. Tanvi Bahl", "clinic": "City Referral Desk", "payLater": false }
@@ -102,7 +102,7 @@
   ],
   "opdQueue": [
     { "code": "RF 4401", "name": "Dr. Meera Joshi", "visits": 6, "amount": 1800, "ready": true, "branch": "MCY" },
-    { "code": "RF 4402", "name": "Dr. Kabir Sethi", "visits": 3, "amount": 620, "ready": false, "branch": "MRV" },
+    { "code": "RF 4402", "name": "Dr. Arjun Sethi", "visits": 3, "amount": 620, "ready": false, "branch": "MRV" },
     { "code": "RF 4403", "name": "Dr. Leela Nair", "visits": 2, "amount": 410, "ready": false, "branch": "MHT" }
   ],
   "cashBooks": {
@@ -170,11 +170,11 @@
   "payments": [
     { "code": "P26MCYNASEP11", "caseId": "IP26-MCY-1098", "br": "MCY", "patient": "Arun Demo-Shah", "uhid": "MCY-1098", "docCode": "RF 4401", "docName": "Dr. Meera Joshi", "amt": 1600, "st": "PAID", "mode": "CASH", "voucher": "VCH-P26MCYNASEP11", "paidOn": "2026-09-13 17:40", "paidBy": "Farhan Malik", "cstage": "LIYA", "bankSt": "", "utr": "", "rokWhy": "" },
     { "code": "P26MCYNASEP18", "caseId": "COMBINED-RF4411", "br": "MCY", "patient": "Combined — 1 NA", "uhid": "—", "docCode": "RF 4411", "docName": "Dr. Tanvi Bahl", "amt": 1000, "st": "OTP_SENT", "mode": "CASH", "voucher": "VCH-P26MCYNASEP18", "paidOn": "", "paidBy": "", "cstage": "DIYA", "bankSt": "", "utr": "", "rokWhy": "" },
-    { "code": "P26MRVNASEP09", "caseId": "IP26-MRV-2144", "br": "MRV", "patient": "Leela Demo-Khan", "uhid": "MRV-2144", "docCode": "RF 4402", "docName": "Dr. Kabir Sethi", "amt": 900, "st": "READY", "mode": "CASH", "voucher": "VCH-P26MRVNASEP09", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "VERIFIED", "utr": "", "rokWhy": "" },
+    { "code": "P26MRVNASEP09", "caseId": "IP26-MRV-2144", "br": "MRV", "patient": "Leela Demo-Khan", "uhid": "MRV-2144", "docCode": "RF 4402", "docName": "Dr. Arjun Sethi", "amt": 900, "st": "READY", "mode": "CASH", "voucher": "VCH-P26MRVNASEP09", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "VERIFIED", "utr": "", "rokWhy": "" },
     { "code": "P26MORNASEP04", "caseId": "IP26-MOR-0881", "br": "MOR", "patient": "Gita Demo-Nair", "uhid": "MOR-0881", "docCode": "RF 4403", "docName": "Dr. Leela Nair", "amt": 750, "st": "READY", "mode": "DIGITAL", "voucher": "VCH-P26MORNASEP04", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "VERIFIED", "utr": "", "dueOn": "2026-09-16", "rokWhy": "" },
     { "code": "P26MHTNASEP07", "caseId": "IP26-MHT-4419", "br": "MHT", "patient": "Rohit Demo-Das", "uhid": "MHT-4419", "docCode": "RF 4403", "docName": "Dr. Leela Nair", "amt": 2100, "st": "READY", "mode": "CASH", "voucher": "VCH-P26MHTNASEP07", "paidOn": "", "paidBy": "", "cstage": "TAIYAAR", "bankSt": "", "utr": "", "rokWhy": "Cash flag jaanch baaki — cashier ke pehle HIMS ✓" },
     { "code": "P26MCYNASEP02", "caseId": "IP26-MCY-1011", "br": "MCY", "patient": "Pooja Demo-Lal", "uhid": "MCY-1011", "docCode": "RF 4408", "docName": "Dr. Omar Qureshi", "amt": 500, "st": "BLOCKED_NUMBER", "mode": "CASH", "voucher": "VCH-P26MCYNASEP02", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "", "utr": "", "rokWhy": "Doctor mobile verify nahi hua" },
-    { "code": "P26MRVNASEP03", "caseId": "IP26-MRV-2002", "br": "MRV", "patient": "Aman Demo-Gill", "uhid": "MRV-2002", "docCode": "RF 4402", "docName": "Dr. Kabir Sethi", "amt": 400, "st": "CANCELLED", "mode": "CASH", "voucher": "VCH-P26MRVNASEP03", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "", "utr": "", "rokWhy": "" }
+    { "code": "P26MRVNASEP03", "caseId": "IP26-MRV-2002", "br": "MRV", "patient": "Aman Demo-Gill", "uhid": "MRV-2002", "docCode": "RF 4402", "docName": "Dr. Arjun Sethi", "amt": 400, "st": "CANCELLED", "mode": "CASH", "voucher": "VCH-P26MRVNASEP03", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "", "utr": "", "rokWhy": "" }
   ],
   "bills": [
     {
@@ -220,7 +220,7 @@
       "patient": "Neel Ahuja",
       "uhid": "MOR-1188",
       "docCode": "RF 4402",
-      "docName": "Dr. Kabir Sethi",
+      "docName": "Dr. Arjun Sethi",
       "scheme": "TPA",
       "gross": 15000,
       "disc": 0,
@@ -257,7 +257,7 @@
       "patient": "Sana Demo-Kapoor",
       "uhid": "MCY-8821",
       "docCode": "RF 4402",
-      "docName": "Dr. Kabir Sethi",
+      "docName": "Dr. Arjun Sethi",
       "scheme": "AYUSHMAN",
       "gross": 32000,
       "disc": 0,

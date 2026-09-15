@@ -1,0 +1,11 @@
+# Static demo: publish public/ as-is. No Node runtime needed.
+[build]
+  publish = "public"
+  command = "true"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Cache-Control = "no-store"

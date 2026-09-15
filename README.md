@@ -63,9 +63,9 @@ npm test
 - `scripts/scrub-check.js` — production hospital / portal names is tree me nahi
 - `scripts/smoke.js` — seed shape + local HTTP
 
-## Publish (private GitHub repo)
+## Publish
 
-Target: `venkateshwareinstein-svg/spark-ledger-demo` (private).
+Target: `venkateshwareinstein-svg/spark-ledger-demo` (public).
 
 Cloud GitHub App tokens is sibling repo ko **create** nahi kar sakte (contents-on-existing-repo only). Jis machine par `gh` se private repo ban sake:
 
@@ -84,6 +84,19 @@ git branch -M main
 git remote add origin https://github.com/venkateshwareinstein-svg/spark-ledger-demo.git
 git push -u origin main
 ```
+
+## Public demo
+
+Static files in `public/` (no Node runtime). GitHub Pages publishes that folder:
+
+**https://venkateshwareinstein-svg.github.io/spark-ledger-demo/**
+
+Preferred Spark Strategy hosts (DNS / Netlify account still needed):
+
+- `https://sparkstrategy.co.in/ledger/demo` — path on the existing Netlify site (currently 404)
+- `https://demo.sparkstrategy.co.in` — subdomain (currently no DNS)
+
+Connect this repo to Netlify (`netlify.toml` publishes `public/`) or add a Pages CNAME after the subdomain exists.
 
 ## What was extracted / scrubbed
 

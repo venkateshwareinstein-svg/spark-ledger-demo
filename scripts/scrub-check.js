@@ -11,6 +11,8 @@ var ROOT = path.join(__dirname, '..');
 var BANNED = [
   /\bKHPL\b/i,
   /Dhanvantri/i,
+  /Kabir/i,
+  /Kabir Hospital/i,
   /\bDSH\b/,
   /\bDRH\b/,
   /\bGMH\b/,
