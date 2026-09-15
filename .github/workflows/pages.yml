@@ -2,9 +2,7 @@ name: Deploy Spark Ledger demo to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-      - cursor/scrub-public-demo-e566
+    branches: [main]
   workflow_dispatch:
 
 permissions:
