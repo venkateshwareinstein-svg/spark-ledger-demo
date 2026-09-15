@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spark Ledger — Spark Strategy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="banner">FICTIONAL DEMO DATA · Spark Ledger by Spark Strategy · not live metrics · Meridian Care Group is a made-up hospital group</div>
+
+  <div id="loginView" class="wrap">
+    <div class="login">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#c2410c"/>
+        <path d="M18 36 L32 12 L46 36 H36 L32 28 L28 36 Z" fill="#ffedd5"/>
+        <path d="M20 44 h24 v6 H20 z" fill="#ffedd5" opacity=".85"/>
+      </svg>
+      <div class="kicker">Spark Strategy</div>
+      <h1>Spark Ledger</h1>
+      <div class="sub">Hospital-group ledger: doctor khaata, cash book, payment register, bills / NA hisaab — four fictional branches, one group view.</div>
+      <div class="rolegrid" id="roleGrid"></div>
+      <p class="count" style="margin-top:14px">PIN / secrets nahi. Role chip dabao, seed JSON se demo khulta hai.</p>
+    </div>
+  </div>
+
+  <div id="appView" class="wrap hide">
+    <div class="top">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#c2410c"/>
+          <path d="M18 36 L32 12 L46 36 H36 L32 28 L28 36 Z" fill="#ffedd5"/>
+          <path d="M20 44 h24 v6 H20 z" fill="#ffedd5" opacity=".85"/>
+        </svg>
+        <h1>Spark Ledger<small>Spark Strategy · Meridian Care Group (demo)</small></h1>
+      </div>
+      <span class="who" id="whoami"></span>
+      <button class="linkbtn" type="button" id="themeBtn">Theme</button>
+      <button class="linkbtn" type="button" id="logoutBtn">Logout</button>
+    </div>
+
+    <div class="chips" id="branchChips"></div>
+    <div class="tabs">
+      <button class="tab on" type="button" data-view="board">Group</button>
+      <button class="tab" type="button" data-view="khaata">Doctor Khaata</button>
+      <button class="tab" type="button" data-view="cb">Cash Book</button>
+      <button class="tab" type="button" data-view="pay">Payment Register</button>
+      <button class="tab" type="button" data-view="bills">Bills / NA Hisaab</button>
+    </div>
+
+    <section id="view-board">
+      <div class="stats" id="boardStats"></div>
+      <div class="hospgrid" id="boardHosp"></div>
+      <div class="card" style="margin-top:10px">
+        <b>What Spark Ledger shows a hospital group</b>
+        <div class="muted" style="margin-top:6px">
+          Four units, one ledger. Doctor khaata combines IPD + OPD until a threshold, then one payout.
+          Each branch has hospital + pharmacy cash books (maker-checker, reverse not delete).
+          Payment register tracks cash vs bank. Bills become NA hisaab before money moves.
+        </div>
+      </div>
+    </section>
+
+    <section id="view-khaata" class="hide">
+      <div class="chips">
+        <button class="fchip on" type="button" data-kh="doc">Khaata</button>
+        <button class="fchip" type="button" data-kh="opd">OPD jama</button>
+      </div>
+      <div class="count" id="khHead"></div>
+      <div id="khList"></div>
+    </section>
+
+    <section id="view-cb" class="hide">
+      <div class="chips" id="cbBookChips">
+        <button class="fchip on" type="button" data-book="hospital">Hospital till</button>
+        <button class="fchip" type="button" data-book="pharmacy">Pharmacy till</button>
+      </div>
+      <div class="count" id="cbTop"></div>
+      <div class="card" id="cbAddBox">
+        <b>Nayi entry</b>
+        <div class="formgrid" style="margin-top:8px">
+          <input id="cbDate" type="date">
+          <input id="cbPart" placeholder="Particulars — canteen, collection, NA payout…">
+          <input id="cbAaye" inputmode="numeric" placeholder="Cash in">
+          <input id="cbGaye" inputmode="numeric" placeholder="Cash out">
+        </div>
+        <p class="count">Ek hi taraf bharein. Delete nahi — galat line ki ulat-entry banti hai. Balance hamesha poori book ka.</p>
+        <button class="btn" type="button" id="cbAddBtn">Darj karein</button>
+      </div>
+      <div id="cbList"></div>
+    </section>
+
+    <section id="view-pay" class="hide">
+      <div class="count" id="paySum"></div>
+      <div class="filters">
+        <input id="payQ" placeholder="Khojein — doctor / NA / case / patient">
+        <select id="payF">
+          <option value="">Sab status</option>
+          <option value="READY">READY</option>
+          <option value="OTP_SENT">OTP_SENT</option>
+          <option value="BLOCKED_NUMBER">BLOCKED_NUMBER</option>
+          <option value="PAID">PAID</option>
+          <option value="CANCELLED">CANCELLED</option>
+        </select>
+        <select id="payM">
+          <option value="">Cash + Bank</option>
+          <option value="CASH">Cash</option>
+          <option value="DIGITAL">Bank</option>
+        </select>
+      </div>
+      <div id="payList"></div>
+    </section>
+
+    <section id="view-bills" class="hide">
+      <div class="count" id="billSum"></div>
+      <div id="billList"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

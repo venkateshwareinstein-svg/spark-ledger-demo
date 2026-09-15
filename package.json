@@ -1,0 +1,11 @@
+{
+  "name": "spark-ledger-demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Spark Ledger lead demo — fictional multi-branch hospital-group ledger (Spark Strategy).",
+  "scripts": {
+    "start": "node server.js",
+    "scrub": "node scripts/scrub-check.js",
+    "test": "node scripts/scrub-check.js && node scripts/smoke.js"
+  }
+}

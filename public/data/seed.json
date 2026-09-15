@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "product": "Spark Ledger",
+    "company": "Spark Strategy",
+    "build": "demo-2026-09-15-a",
+    "disclaimer": "Fictional hospital-group seed for lead demos. Not live metrics. No real patients, staff, or hospital names.",
+    "demoDay": "2026-09-15",
+    "currency": "INR",
+    "khaataMin": 1000,
+    "autoCreditHours": 24
+  },
+  "group": {
+    "name": "Meridian Care Group",
+    "tagline": "Four-hospital demo group — North India, fictional",
+    "cityHint": "Demo City"
+  },
+  "branches": [
+    { "id": "MCY", "name": "Meridian City", "kind": "flagship", "beds": 180 },
+    { "id": "MRV", "name": "Meridian Riverside", "kind": "secondary", "beds": 90 },
+    { "id": "MOR", "name": "Meridian Orchard", "kind": "day-care", "beds": 40 },
+    { "id": "MHT", "name": "Meridian Heights", "kind": "community", "beds": 60 }
+  ],
+  "roles": [
+    { "id": "director", "name": "Nisha Rao", "title": "Group Director", "canRelease": true, "canCheck": true, "canWriteCash": true },
+    { "id": "accounts", "name": "Vikram Deol", "title": "Accounts", "canRelease": false, "canCheck": true, "canWriteCash": false },
+    { "id": "cashier", "name": "Farhan Malik", "title": "Head Cashier", "canRelease": false, "canCheck": false, "canWriteCash": true },
+    { "id": "hims", "name": "Priya Sen", "title": "HIMS", "canRelease": true, "canCheck": true, "canWriteCash": false }
+  ],
+  "doctors": [
+    { "code": "RF 4401", "name": "Dr. Meera Joshi", "clinic": "Lakeview Clinic, Ward 4", "payLater": false },
+    { "code": "RF 4402", "name": "Dr. Kabir Sethi", "clinic": "Orchard Lane OPD", "payLater": false },
+    { "code": "RF 4403", "name": "Dr. Leela Nair", "clinic": "Heights Family Care", "payLater": false },
+    { "code": "RF 4408", "name": "Dr. Omar Qureshi", "clinic": "Riverside Consult", "payLater": true },
+    { "code": "RF 4411", "name": "Dr. Tanvi Bahl", "clinic": "City Referral Desk", "payLater": false }
+  ],
+  "khaata": [
+    {
+      "code": "RF 4401",
+      "amount": 4200,
+      "ready": true,
+      "overMin": true,
+      "inFlight": "",
+      "n": 4,
+      "srcs": { "IPD_CASE": 3, "OPD_RELEASE": 1 },
+      "entries": [
+        { "id": "KH-101", "src": "IPD_CASE", "ref": "IP26-MCY-1104", "patient": "Rina Vale", "uhid": "MCY-1104", "branch": "MCY", "amt": 1600, "st": "OPEN", "on": "2026-09-12 11:20", "by": "auto-jama" },
+        { "id": "KH-102", "src": "IPD_CASE", "ref": "IP26-MRV-2211", "patient": "Soham Kade", "uhid": "MRV-2211", "branch": "MRV", "amt": 900, "st": "OPEN", "on": "2026-09-13 09:05", "by": "auto-jama" },
+        { "id": "KH-103", "src": "OPD_RELEASE", "ref": "OP26-MCY-3308", "patient": "Anika Bose", "uhid": "MCY-3308", "branch": "MCY", "amt": 750, "st": "OPEN", "on": "2026-09-14 16:40", "by": "hims" },
+        { "id": "KH-104", "src": "IPD_CASE", "ref": "IP26-MHT-4402", "patient": "Dev Patel-Demo", "uhid": "MHT-4402", "branch": "MHT", "amt": 950, "st": "OPEN", "on": "2026-09-15 08:15", "by": "auto-jama" }
+      ]
+    },
+    {
+      "code": "RF 4402",
+      "amount": 750,
+      "ready": false,
+      "overMin": false,
+      "inFlight": "",
+      "n": 2,
+      "srcs": { "IPD_CASE": 1, "OPD_RELEASE": 1 },
+      "entries": [
+        { "id": "KH-201", "src": "IPD_CASE", "ref": "IP26-MOR-1188", "patient": "Neel Ahuja", "uhid": "MOR-1188", "branch": "MOR", "amt": 400, "st": "OPEN", "on": "2026-09-14 10:12", "by": "auto-jama" },
+        { "id": "KH-202", "src": "OPD_RELEASE", "ref": "OP26-MRV-1190", "patient": "Kavya Iyer", "uhid": "MRV-1190", "branch": "MRV", "amt": 350, "st": "OPEN", "on": "2026-09-15 07:50", "by": "hims" }
+      ]
+    },
+    {
+      "code": "RF 4403",
+      "amount": 2100,
+      "ready": true,
+      "overMin": true,
+      "inFlight": "",
+      "n": 2,
+      "srcs": { "IPD_CASE": 2 },
+      "entries": [
+        { "id": "KH-301", "src": "IPD_CASE", "ref": "IP26-MHT-5510", "patient": "Harsh Vora", "uhid": "MHT-5510", "branch": "MHT", "amt": 1200, "st": "OPEN", "on": "2026-09-11 18:02", "by": "auto-jama" },
+        { "id": "KH-302", "src": "IPD_CASE", "ref": "IP26-MCY-5514", "patient": "Mira Solanki", "uhid": "MCY-5514", "branch": "MCY", "amt": 900, "st": "OPEN", "on": "2026-09-13 14:33", "by": "auto-jama" }
+      ]
+    },
+    {
+      "code": "RF 4408",
+      "amount": 1800,
+      "ready": false,
+      "overMin": true,
+      "inFlight": "",
+      "n": 1,
+      "srcs": { "IPD_CASE": 1 },
+      "entries": [
+        { "id": "KH-401", "src": "IPD_CASE", "ref": "IP26-MRV-6601", "patient": "Ishan Rao-Demo", "uhid": "MRV-6601", "branch": "MRV", "amt": 1800, "st": "OPEN", "on": "2026-09-10 12:00", "by": "auto-jama" }
+      ]
+    },
+    {
+      "code": "RF 4411",
+      "amount": 1000,
+      "ready": false,
+      "overMin": true,
+      "inFlight": "P26MCYNASEP18",
+      "n": 1,
+      "srcs": { "IPD_CASE": 1 },
+      "entries": [
+        { "id": "KH-501", "src": "IPD_CASE", "ref": "IP26-MCY-7703", "patient": "Zara Malik-Demo", "uhid": "MCY-7703", "branch": "MCY", "amt": 1000, "st": "OPEN", "on": "2026-09-14 19:10", "by": "auto-jama" }
+      ]
+    }
+  ],
+  "opdQueue": [
+    { "code": "RF 4401", "name": "Dr. Meera Joshi", "visits": 6, "amount": 1800, "ready": true, "branch": "MCY" },
+    { "code": "RF 4402", "name": "Dr. Kabir Sethi", "visits": 3, "amount": 620, "ready": false, "branch": "MRV" },
+    { "code": "RF 4403", "name": "Dr. Leela Nair", "visits": 2, "amount": 410, "ready": false, "branch": "MHT" }
+  ],
+  "cashBooks": {
+    "MCY": {
+      "hospital": {
+        "opening": 85000,
+        "entries": [
+          { "id": "CB-MCY-H-01", "d": "2026-09-12", "part": "OPD cash collection", "voucher": "VCH-H-881", "aaye": 42000, "gaye": 0, "by": "Farhan Malik", "jBy": "Priya Sen", "ulatOf": "", "note": "" },
+          { "id": "CB-MCY-H-02", "d": "2026-09-13", "part": "NA(P26MCYNASEP11)", "voucher": "VCH-H-882", "aaye": 0, "gaye": 4200, "by": "Farhan Malik", "jBy": "Priya Sen", "ulatOf": "", "note": "combined payout — RF 4401 previous cycle" },
+          { "id": "CB-MCY-H-03", "d": "2026-09-14", "part": "Canteen imprest", "voucher": "VCH-H-883", "aaye": 0, "gaye": 2500, "by": "Farhan Malik", "jBy": "", "ulatOf": "", "note": "pending check" },
+          { "id": "CB-MCY-H-04", "d": "2026-09-15", "part": "IPD cash collection", "voucher": "VCH-H-884", "aaye": 18500, "gaye": 0, "by": "Farhan Malik", "jBy": "", "ulatOf": "", "note": "" }
+        ]
+      },
+      "pharmacy": {
+        "opening": 22000,
+        "entries": [
+          { "id": "CB-MCY-P-01", "d": "2026-09-13", "part": "Counter sale", "voucher": "VCH-P-441", "aaye": 9600, "gaye": 0, "by": "Farhan Malik", "jBy": "Priya Sen", "ulatOf": "", "note": "" },
+          { "id": "CB-MCY-P-02", "d": "2026-09-14", "part": "Vendor payment — Demo Distributors", "voucher": "VCH-P-442", "aaye": 0, "gaye": 7400, "by": "Farhan Malik", "jBy": "Priya Sen", "ulatOf": "", "note": "" }
+        ]
+      }
+    },
+    "MRV": {
+      "hospital": {
+        "opening": 31000,
+        "entries": [
+          { "id": "CB-MRV-H-01", "d": "2026-09-13", "part": "OPD cash collection", "voucher": "VCH-H-221", "aaye": 15400, "gaye": 0, "by": "Farhan Malik", "jBy": "Priya Sen", "ulatOf": "", "note": "" },
+          { "id": "CB-MRV-H-02", "d": "2026-09-15", "part": "Employee advance", "voucher": "VCH-H-222", "aaye": 0, "gaye": 3000, "by": "Farhan Malik", "jBy": "", "ulatOf": "", "note": "pending check" }
+        ]
+      },
+      "pharmacy": {
+        "opening": 8000,
+        "entries": [
+          { "id": "CB-MRV-P-01", "d": "2026-09-14", "part": "Counter sale", "voucher": "VCH-P-119", "aaye": 4100, "gaye": 0, "by": "Farhan Malik", "jBy": "", "ulatOf": "", "note": "" }
+        ]
+      }
+    },
+    "MOR": {
+      "hospital": {
+        "opening": 12000,
+        "entries": [
+          { "id": "CB-MOR-H-01", "d": "2026-09-14", "part": "Day-care cash collection", "voucher": "VCH-H-301", "aaye": 7800, "gaye": 0, "by": "Farhan Malik", "jBy": "Priya Sen", "ulatOf": "", "note": "" }
+        ]
+      },
+      "pharmacy": {
+        "opening": 4500,
+        "entries": []
+      }
+    },
+    "MHT": {
+      "hospital": {
+        "opening": 17500,
+        "entries": [
+          { "id": "CB-MHT-H-01", "d": "2026-09-12", "part": "OPD cash collection", "voucher": "VCH-H-501", "aaye": 9200, "gaye": 0, "by": "Farhan Malik", "jBy": "Priya Sen", "ulatOf": "", "note": "" },
+          { "id": "CB-MHT-H-02", "d": "2026-09-15", "part": "NA(P26MHTNASEP07)", "voucher": "VCH-H-502", "aaye": 0, "gaye": 2100, "by": "Farhan Malik", "jBy": "", "ulatOf": "", "note": "payout in transit" }
+        ]
+      },
+      "pharmacy": {
+        "opening": 6100,
+        "entries": [
+          { "id": "CB-MHT-P-01", "d": "2026-09-13", "part": "Counter sale", "voucher": "VCH-P-210", "aaye": 2300, "gaye": 0, "by": "Farhan Malik", "jBy": "Priya Sen", "ulatOf": "", "note": "" }
+        ]
+      }
+    }
+  },
+  "payments": [
+    { "code": "P26MCYNASEP11", "caseId": "IP26-MCY-1098", "br": "MCY", "patient": "Arun Demo-Shah", "uhid": "MCY-1098", "docCode": "RF 4401", "docName": "Dr. Meera Joshi", "amt": 1600, "st": "PAID", "mode": "CASH", "voucher": "VCH-P26MCYNASEP11", "paidOn": "2026-09-13 17:40", "paidBy": "Farhan Malik", "cstage": "LIYA", "bankSt": "", "utr": "", "rokWhy": "" },
+    { "code": "P26MCYNASEP18", "caseId": "COMBINED-RF4411", "br": "MCY", "patient": "Combined — 1 NA", "uhid": "—", "docCode": "RF 4411", "docName": "Dr. Tanvi Bahl", "amt": 1000, "st": "OTP_SENT", "mode": "CASH", "voucher": "VCH-P26MCYNASEP18", "paidOn": "", "paidBy": "", "cstage": "DIYA", "bankSt": "", "utr": "", "rokWhy": "" },
+    { "code": "P26MRVNASEP09", "caseId": "IP26-MRV-2144", "br": "MRV", "patient": "Leela Demo-Khan", "uhid": "MRV-2144", "docCode": "RF 4402", "docName": "Dr. Kabir Sethi", "amt": 900, "st": "READY", "mode": "CASH", "voucher": "VCH-P26MRVNASEP09", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "VERIFIED", "utr": "", "rokWhy": "" },
+    { "code": "P26MORNASEP04", "caseId": "IP26-MOR-0881", "br": "MOR", "patient": "Gita Demo-Nair", "uhid": "MOR-0881", "docCode": "RF 4403", "docName": "Dr. Leela Nair", "amt": 750, "st": "READY", "mode": "DIGITAL", "voucher": "VCH-P26MORNASEP04", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "VERIFIED", "utr": "", "dueOn": "2026-09-16", "rokWhy": "" },
+    { "code": "P26MHTNASEP07", "caseId": "IP26-MHT-4419", "br": "MHT", "patient": "Rohit Demo-Das", "uhid": "MHT-4419", "docCode": "RF 4403", "docName": "Dr. Leela Nair", "amt": 2100, "st": "READY", "mode": "CASH", "voucher": "VCH-P26MHTNASEP07", "paidOn": "", "paidBy": "", "cstage": "TAIYAAR", "bankSt": "", "utr": "", "rokWhy": "Cash flag jaanch baaki — cashier ke pehle HIMS ✓" },
+    { "code": "P26MCYNASEP02", "caseId": "IP26-MCY-1011", "br": "MCY", "patient": "Pooja Demo-Lal", "uhid": "MCY-1011", "docCode": "RF 4408", "docName": "Dr. Omar Qureshi", "amt": 500, "st": "BLOCKED_NUMBER", "mode": "CASH", "voucher": "VCH-P26MCYNASEP02", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "", "utr": "", "rokWhy": "Doctor mobile verify nahi hua" },
+    { "code": "P26MRVNASEP03", "caseId": "IP26-MRV-2002", "br": "MRV", "patient": "Aman Demo-Gill", "uhid": "MRV-2002", "docCode": "RF 4402", "docName": "Dr. Kabir Sethi", "amt": 400, "st": "CANCELLED", "mode": "CASH", "voucher": "VCH-P26MRVNASEP03", "paidOn": "", "paidBy": "", "cstage": "", "bankSt": "", "utr": "", "rokWhy": "" }
+  ],
+  "bills": [
+    {
+      "caseId": "IP26-MCY-1104",
+      "br": "MCY",
+      "patient": "Rina Vale",
+      "uhid": "MCY-1104",
+      "docCode": "RF 4401",
+      "docName": "Dr. Meera Joshi",
+      "scheme": "CASH",
+      "gross": 22100,
+      "disc": 0,
+      "net": 22100,
+      "naAmt": 1600,
+      "st": "PAYABLE",
+      "audit": "AUDITED_OK",
+      "lines": [
+        { "n": "Base NET (room + admin + procedure)", "dep": 14700, "pct": 8, "val": 1176 },
+        { "n": "MRI BRAIN", "dep": 7400, "pct": 5.7, "val": 424 }
+      ]
+    },
+    {
+      "caseId": "IP26-MRV-2211",
+      "br": "MRV",
+      "patient": "Soham Kade",
+      "uhid": "MRV-2211",
+      "docCode": "RF 4401",
+      "docName": "Dr. Meera Joshi",
+      "scheme": "CASH",
+      "gross": 9800,
+      "disc": 400,
+      "net": 9400,
+      "naAmt": 900,
+      "st": "PAYABLE",
+      "audit": "AUDITED_OK",
+      "lines": [
+        { "n": "Base NET", "dep": 9400, "pct": 9.6, "val": 900 }
+      ]
+    },
+    {
+      "caseId": "IP26-MOR-1188",
+      "br": "MOR",
+      "patient": "Neel Ahuja",
+      "uhid": "MOR-1188",
+      "docCode": "RF 4402",
+      "docName": "Dr. Kabir Sethi",
+      "scheme": "TPA",
+      "gross": 15000,
+      "disc": 0,
+      "net": 15000,
+      "naAmt": 400,
+      "st": "PENDING",
+      "audit": "",
+      "lines": [
+        { "n": "Package (day-care)", "dep": 15000, "pct": 2.7, "val": 400 }
+      ]
+    },
+    {
+      "caseId": "IP26-MHT-5510",
+      "br": "MHT",
+      "patient": "Harsh Vora",
+      "uhid": "MHT-5510",
+      "docCode": "RF 4403",
+      "docName": "Dr. Leela Nair",
+      "scheme": "CASH",
+      "gross": 18600,
+      "disc": 1200,
+      "net": 17400,
+      "naAmt": 1200,
+      "st": "PAYABLE",
+      "audit": "AUDITED_OK",
+      "lines": [
+        { "n": "Base NET", "dep": 12000, "pct": 8, "val": 960 },
+        { "n": "Lab panel", "dep": 5400, "pct": 4.4, "val": 240 }
+      ]
+    },
+    {
+      "caseId": "IP26-MCY-8821",
+      "br": "MCY",
+      "patient": "Sana Demo-Kapoor",
+      "uhid": "MCY-8821",
+      "docCode": "RF 4402",
+      "docName": "Dr. Kabir Sethi",
+      "scheme": "AYUSHMAN",
+      "gross": 32000,
+      "disc": 0,
+      "net": 32000,
+      "naAmt": 1000,
+      "st": "HOLD",
+      "audit": "DISPUTE",
+      "lines": [
+        { "n": "Medical (cashless settlement — not a cash refund)", "dep": 32000, "pct": 3.1, "val": 1000 }
+      ]
+    }
+  ]
+}
