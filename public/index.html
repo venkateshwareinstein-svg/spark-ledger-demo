@@ -3,118 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spark Ledger — Spark Strategy</title>
+  <title>Spark Ledger — Meridian Care Group (demo)</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="banner">FICTIONAL DEMO DATA · Spark Ledger by Spark Strategy · not live metrics · Meridian Care Group is a made-up hospital group</div>
 
-  <div id="loginView" class="wrap">
-    <div class="login">
-      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
-        <rect width="64" height="64" rx="14" fill="#c2410c"/>
-        <path d="M18 36 L32 12 L46 36 H36 L32 28 L28 36 Z" fill="#ffedd5"/>
-        <path d="M20 44 h24 v6 H20 z" fill="#ffedd5" opacity=".85"/>
-      </svg>
-      <div class="kicker">Spark Strategy</div>
-      <h1>Spark Ledger</h1>
-      <div class="sub">Hospital-group ledger: doctor khaata, cash book, payment register, bills / NA hisaab — four fictional branches, one group view.</div>
-      <div class="rolegrid" id="roleGrid"></div>
-      <p class="count" style="margin-top:14px">PIN / secrets nahi. Role chip dabao, seed JSON se demo khulta hai.</p>
+  <div id="loginView">
+    <header class="mast">
+      <div class="lockup">
+        <img class="mark" src="favicon.svg" alt="">
+        <span class="nm">
+          <span class="n1">Spark Ledger</span>
+          <span class="n2">Spark Strategy</span>
+        </span>
+      </div>
+      <span class="mast-note">Operations demo · no PIN</span>
+    </header>
+    <div class="login-stage">
+      <div class="login-panel">
+        <p class="label">Sign in</p>
+        <h1>Meridian Care Group</h1>
+        <p class="sub">Pick a role to open the ledger. Production PIN, OTP and live hospital data are not in this demo.</p>
+        <div class="tablewrap">
+          <table class="grid">
+            <thead>
+              <tr><th>Name</th><th>Role</th><th></th></tr>
+            </thead>
+            <tbody id="roleGrid"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="appView" class="wrap hide">
-    <div class="top">
-      <div class="brand">
-        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
-          <rect width="64" height="64" rx="14" fill="#c2410c"/>
-          <path d="M18 36 L32 12 L46 36 H36 L32 28 L28 36 Z" fill="#ffedd5"/>
-          <path d="M20 44 h24 v6 H20 z" fill="#ffedd5" opacity=".85"/>
-        </svg>
-        <h1>Spark Ledger<small>Spark Strategy · Meridian Care Group (demo)</small></h1>
+  <div id="appView" class="hide shell">
+    <aside class="sidebar" aria-label="Ledger screens">
+      <div class="side-brand">
+        <img class="mark" src="favicon.svg" alt="">
+        <span>
+          <b>Spark Ledger</b>
+          <small>Meridian Care Group</small>
+        </span>
       </div>
-      <span class="who" id="whoami"></span>
-      <button class="linkbtn" type="button" id="themeBtn">Theme</button>
-      <button class="linkbtn" type="button" id="logoutBtn">Logout</button>
-    </div>
+      <nav class="sidenav" id="sideNav">
+        <button class="navbtn on" type="button" data-view="board">Group</button>
+        <button class="navbtn" type="button" data-view="khaata">Doctor Khaata</button>
+        <button class="navbtn" type="button" data-view="cb">Cash Book</button>
+        <button class="navbtn" type="button" data-view="pay">Payment Register</button>
+        <button class="navbtn" type="button" data-view="bills">Bills / NA Hisaab</button>
+      </nav>
+      <p class="side-foot">Demo seed · session memory only</p>
+    </aside>
 
-    <div class="chips" id="branchChips"></div>
-    <div class="tabs">
-      <button class="tab on" type="button" data-view="board">Group</button>
-      <button class="tab" type="button" data-view="khaata">Doctor Khaata</button>
-      <button class="tab" type="button" data-view="cb">Cash Book</button>
-      <button class="tab" type="button" data-view="pay">Payment Register</button>
-      <button class="tab" type="button" data-view="bills">Bills / NA Hisaab</button>
-    </div>
-
-    <section id="view-board">
-      <div class="stats" id="boardStats"></div>
-      <div class="hospgrid" id="boardHosp"></div>
-      <div class="card" style="margin-top:10px">
-        <b>What Spark Ledger shows a hospital group</b>
-        <div class="muted" style="margin-top:6px">
-          Four units, one ledger. Doctor khaata combines IPD + OPD until a threshold, then one payout.
-          Each branch has hospital + pharmacy cash books (maker-checker, reverse not delete).
-          Payment register tracks cash vs bank. Bills become NA hisaab before money moves.
+    <div class="maincol">
+      <header class="topbar">
+        <div>
+          <p class="label" id="crumb">Group</p>
+          <h2 class="page-title" id="pageTitle">Group overview</h2>
         </div>
-      </div>
-    </section>
+        <label class="field compact">
+          <span>Unit</span>
+          <select id="branchSelect"></select>
+        </label>
+        <span class="who" id="whoami"></span>
+        <button class="btn ghost" type="button" id="themeBtn">Theme</button>
+        <button class="btn ghost" type="button" id="logoutBtn">Sign out</button>
+      </header>
 
-    <section id="view-khaata" class="hide">
-      <div class="chips">
-        <button class="fchip on" type="button" data-kh="doc">Khaata</button>
-        <button class="fchip" type="button" data-kh="opd">OPD jama</button>
-      </div>
-      <div class="count" id="khHead"></div>
-      <div id="khList"></div>
-    </section>
+      <div class="workspace">
+        <section id="view-board">
+          <div class="kpi-strip" id="boardStats"></div>
+          <div class="panel">
+            <div class="panel-head">
+              <span class="label">Branches</span>
+              <span class="muted" id="boardHint">Cash in hand is hospital + pharmacy tills</span>
+            </div>
+            <div class="tablewrap" id="boardHosp"></div>
+          </div>
+          <p class="footnote">Four units, one ledger. Doctor khaata combines IPD + OPD until a threshold, then one payout. Each branch has hospital + pharmacy cash books (maker-checker, reverse not delete). Payment register tracks cash vs bank. Bills become NA hisaab before money moves.</p>
+        </section>
 
-    <section id="view-cb" class="hide">
-      <div class="chips" id="cbBookChips">
-        <button class="fchip on" type="button" data-book="hospital">Hospital till</button>
-        <button class="fchip" type="button" data-book="pharmacy">Pharmacy till</button>
-      </div>
-      <div class="count" id="cbTop"></div>
-      <div class="card" id="cbAddBox">
-        <b>Nayi entry</b>
-        <div class="formgrid" style="margin-top:8px">
-          <input id="cbDate" type="date">
-          <input id="cbPart" placeholder="Particulars — canteen, collection, NA payout…">
-          <input id="cbAaye" inputmode="numeric" placeholder="Cash in">
-          <input id="cbGaye" inputmode="numeric" placeholder="Cash out">
-        </div>
-        <p class="count">Ek hi taraf bharein. Delete nahi — galat line ki ulat-entry banti hai. Balance hamesha poori book ka.</p>
-        <button class="btn" type="button" id="cbAddBtn">Darj karein</button>
-      </div>
-      <div id="cbList"></div>
-    </section>
+        <section id="view-khaata" class="hide">
+          <div class="toolbar">
+            <div class="seg" role="tablist">
+              <button class="segbtn on" type="button" data-kh="doc">Khaata</button>
+              <button class="segbtn" type="button" data-kh="opd">OPD jama</button>
+            </div>
+            <p class="count" id="khHead"></p>
+          </div>
+          <div class="panel">
+            <div class="tablewrap" id="khList"></div>
+          </div>
+        </section>
 
-    <section id="view-pay" class="hide">
-      <div class="count" id="paySum"></div>
-      <div class="filters">
-        <input id="payQ" placeholder="Khojein — doctor / NA / case / patient">
-        <select id="payF">
-          <option value="">Sab status</option>
-          <option value="READY">READY</option>
-          <option value="OTP_SENT">OTP_SENT</option>
-          <option value="BLOCKED_NUMBER">BLOCKED_NUMBER</option>
-          <option value="PAID">PAID</option>
-          <option value="CANCELLED">CANCELLED</option>
-        </select>
-        <select id="payM">
-          <option value="">Cash + Bank</option>
-          <option value="CASH">Cash</option>
-          <option value="DIGITAL">Bank</option>
-        </select>
-      </div>
-      <div id="payList"></div>
-    </section>
+        <section id="view-cb" class="hide">
+          <div class="toolbar">
+            <div class="seg" id="cbBookChips">
+              <button class="segbtn on" type="button" data-book="hospital">Hospital till</button>
+              <button class="segbtn" type="button" data-book="pharmacy">Pharmacy till</button>
+            </div>
+            <p class="count" id="cbTop"></p>
+          </div>
+          <div class="panel hide" id="cbAddBox">
+            <div class="panel-head"><span class="label">Nayi entry</span><span class="muted">Ek hi taraf · delete nahi — ulat-entry</span></div>
+            <div class="formgrid">
+              <label class="field"><span>Date</span><input id="cbDate" type="date"></label>
+              <label class="field grow"><span>Particulars</span><input id="cbPart" placeholder="canteen, collection, NA payout…"></label>
+              <label class="field"><span>Cash in</span><input id="cbAaye" inputmode="numeric" placeholder="0"></label>
+              <label class="field"><span>Cash out</span><input id="cbGaye" inputmode="numeric" placeholder="0"></label>
+              <button class="btn primary" type="button" id="cbAddBtn">Darj karein</button>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="tablewrap" id="cbList"></div>
+          </div>
+        </section>
 
-    <section id="view-bills" class="hide">
-      <div class="count" id="billSum"></div>
-      <div id="billList"></div>
-    </section>
+        <section id="view-pay" class="hide">
+          <div class="toolbar">
+            <p class="count" id="paySum"></p>
+            <div class="filters">
+              <input id="payQ" placeholder="Khojein — doctor / NA / case / patient">
+              <select id="payF">
+                <option value="">Sab status</option>
+                <option value="READY">READY</option>
+                <option value="OTP_SENT">OTP_SENT</option>
+                <option value="BLOCKED_NUMBER">BLOCKED_NUMBER</option>
+                <option value="PAID">PAID</option>
+                <option value="CANCELLED">CANCELLED</option>
+              </select>
+              <select id="payM">
+                <option value="">Cash + Bank</option>
+                <option value="CASH">Cash</option>
+                <option value="DIGITAL">Bank</option>
+              </select>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="tablewrap" id="payList"></div>
+          </div>
+        </section>
+
+        <section id="view-bills" class="hide">
+          <div class="toolbar">
+            <p class="count" id="billSum"></p>
+          </div>
+          <div class="panel">
+            <div class="tablewrap" id="billList"></div>
+          </div>
+        </section>
+      </div>
+    </div>
   </div>
 
   <div class="toast" id="toast"></div>
